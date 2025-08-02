@@ -1,0 +1,9 @@
+[package]
+name = "wasmtime_double_link2"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+wasmtime = "35.0.0"
+wasi = "0.14.2"
+wasmtime-wasi = "35.0.0"

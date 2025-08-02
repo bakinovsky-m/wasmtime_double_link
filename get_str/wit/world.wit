@@ -1,0 +1,14 @@
+package component:get-str;
+
+package wasi:cli@0.2.3 {
+  interface environment {
+    get-environment: func() -> list<tuple<string, string>>;
+    get-arguments: func() -> list<string>;
+    initial-cwd: func() -> option<string>;
+  }
+}
+/// An example world for the component to target.
+world example {
+    export get-str: func() -> string;
+    import wasi:cli/environment@0.2.3;
+}
