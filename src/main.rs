@@ -400,11 +400,22 @@ fn main() -> wasmtime::Result<()> {
         .typed::<(), (String,)>(&store)
         .expect("failed to type get_str function");
 
-    let (result,) = get_str
-        .call(&mut store, ())
-        .expect("failed to call get_str function");
+    let result = get_str
+        .call(&mut store, ());
+    match result {
+        Ok(result,) => {
+            match result {
+                (res,) => {
+                    println!("RESULT: {}", res);
+                }
+            }
+        }
+        Err(e) => {
+            println!("ERROR: {}", e);
+        }
+    }
 
-    println!("RESULT: {}", result);
+    println!("DONE");
 
     Ok(())
 
