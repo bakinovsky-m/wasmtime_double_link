@@ -7,6 +7,7 @@ struct Component;
 
 impl Guest for Component {
     fn get_str() -> String {
+        panic!("FUCK YOU");
         let mut environment = environment::get_environment();
         match environment.pop() {
             Some((key, _value)) => {
